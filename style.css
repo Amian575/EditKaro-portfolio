@@ -1,0 +1,429 @@
+/* ---------- RESET & BASE ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background: #0f172a;
+    color: white;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+}
+.logo {
+    color: #ff4d4d;
+    font-size: 1.8rem;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+nav ul li a:hover {
+    color: #ff4d4d;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
+}
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+.btn {
+    padding: 12px 30px;
+    background: #ff4d4d;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+/* ---------- SERVICES ---------- */
+#services {
+    padding: 80px 10%;
+    text-align: center;
+}
+#services h2 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+.service-box {
+    flex: 1 1 200px;
+    max-width: 280px;
+    background: #1e293b;
+    padding: 30px 20px;
+    border-radius: 15px;
+    transition: 0.4s;
+    cursor: default;
+}
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 77, 77, 0.2);
+}
+.service-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+}
+.service-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #ff4d4d;
+}
+.service-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+/* ---------- PORTFOLIO ---------- */
+#portfolio {
+    padding: 80px 10%;
+}
+#portfolio h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* Filter Buttons */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+.filters button {
+    padding: 10px 22px;
+    border: 2px solid #ff4d4d;
+    background: transparent;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+.filters button:hover {
+    background: #ff4d4d;
+    color: white;
+}
+.filters button.active {
+    background: #ff4d4d;
+    color: white;
+    box-shadow: 0 0 15px #ff4d4d;
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Video Card */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.4s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255, 77, 77, 0.15);
+    border-color: #ff4d4d;
+}
+
+/* Video Thumbnail with Play Overlay */
+.video-thumbnail {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+.video-thumbnail img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: 0.3s;
+}
+.video-thumbnail:hover img {
+    transform: scale(1.05);
+}
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+.video-thumbnail:hover .play-overlay {
+    opacity: 1;
+}
+.play-icon {
+    font-size: 3rem;
+    color: white;
+    background: rgba(255, 77, 77, 0.8);
+    border-radius: 50%;
+    padding: 10px 20px;
+    box-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
+}
+.card h3 {
+    text-align: center;
+    padding: 15px 15px 5px;
+    font-size: 1.2rem;
+}
+.card-desc {
+    text-align: center;
+    padding: 0 15px 15px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* ---------- ABOUT ---------- */
+#about {
+    padding: 80px 10%;
+    text-align: center;
+}
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+#about p {
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ---------- CONTACT ---------- */
+#contact {
+    padding: 80px 10%;
+}
+#contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+form input,
+form textarea {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+}
+form input::placeholder,
+form textarea::placeholder {
+    color: #aaa;
+}
+form button {
+    padding: 14px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+form button:hover {
+    background: #cc0000;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    background: #000;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ---------- LIGHTBOX (Modal) ---------- */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.lightbox.active {
+    display: flex;
+}
+.lightbox-content {
+    max-width: 800px;
+    width: 100%;
+    background: #0f172a;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+.lightbox-content video {
+    width: 100%;
+    border-radius: 10px;
+    background: black;
+}
+.close-lightbox {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10;
+}
+.close-lightbox:hover {
+    color: #ff4d4d;
+}
+#lightbox-title {
+    text-align: center;
+    padding: 15px 0 5px;
+    font-size: 1.3rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .service-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .service-box {
+        max-width: 100%;
+        width: 100%;
+    }
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+    .filters button {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .video-thumbnail img {
+        height: 180px;
+    }
+    .lightbox-content {
+        padding: 10px;
+    }
+    .close-lightbox {
+        top: 5px;
+        right: 10px;
+        font-size: 2rem;
+    }
+}

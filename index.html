@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editkaro Portfolio</title>
+
+    <!-- AOS Library for scroll animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav>
+            <h2 class="logo">Editkaro.in</h2>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <video autoplay muted loop id="bg-video">
+            <source src="https://files.catbox.moe/jm7i1j.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-content">
+            <h1 data-aos="fade-up">Editkaro.in</h1>
+            <p data-aos="fade-up" data-aos-delay="200">
+                Creative Video Editing & Social Media Marketing Agency
+            </p>
+            <a href="#portfolio" class="btn" data-aos="fade-up" data-aos-delay="400">
+                Explore Portfolio
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services">
+        <h2 data-aos="fade-up">Our Services</h2>
+        <div class="service-container">
+            <div class="service-box" data-aos="flip-left">
+                <span class="service-icon">🎬</span>
+                <h3>Video Editing</h3>
+                <p>Professional cutting, transitions, color grading, and effects for any project.</p>
+            </div>
+            <div class="service-box" data-aos="flip-left" data-aos-delay="100">
+                <span class="service-icon">🎮</span>
+                <h3>Gaming Videos</h3>
+                <p>Montages, highlights, and commentary edits tailored for gamers and streamers.</p>
+            </div>
+            <div class="service-box" data-aos="flip-left" data-aos-delay="200">
+                <span class="service-icon">⚽</span>
+                <h3>Football Edits</h3>
+                <p>Dynamic football compilations with slow-mo, replays, and cinematic effects.</p>
+            </div>
+            <div class="service-box" data-aos="flip-left" data-aos-delay="300">
+                <span class="service-icon">📢</span>
+                <h3>Advertisements</h3>
+                <p>Eye-catching commercial ads for social media, YouTube, and TV.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio">
+        <h2 data-aos="fade-up">Portfolio</h2>
+
+        <!-- Filter Buttons -->
+        <div class="filters" data-aos="fade-up">
+            <button class="active" data-filter="all" onclick="filterVideos('all')">All</button>
+            <button data-filter="short" onclick="filterVideos('short')">Short Form</button>
+            <button data-filter="long" onclick="filterVideos('long')">Long Form</button>
+            <button data-filter="gaming" onclick="filterVideos('gaming')">Gaming</button>
+            <button data-filter="football" onclick="filterVideos('football')">Football</button>
+            <button data-filter="anime" onclick="filterVideos('anime')">Anime</button>
+            <button data-filter="ads" onclick="filterVideos('ads')">Ads</button>
+        </div>
+
+        <!-- Video Gallery -->
+        <div class="gallery" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Card 1: Short Form -->
+            <div class="card" data-category="short">
+                <div class="video-thumbnail" onclick="openLightbox('https://files.catbox.moe/6iitlf.mp4', 'Short Form Video – Social Media Reel')">
+                    <img src="images/short.jpg" alt="Short Form Video" />
+                    <div class="play-overlay"><span class="play-icon">▶</span></div>
+                </div>
+                <h3>Short Form Video</h3>
+                <p class="card-desc">Fast-paced social media content</p>
+            </div>
+
+            <!-- Card 2: Long Form -->
+            <div class="card" data-category="long">
+                <div class="video-thumbnail" onclick="openLightbox('https://files.catbox.moe/m7eot4.mp4', 'Long Form Video – Documentary Style')">
+                    <img src="images/long.jpg" alt="Long Form Video" />
+                    <div class="play-overlay"><span class="play-icon">▶</span></div>
+                </div>
+                <h3>Long Form Video</h3>
+                <p class="card-desc">In-depth storytelling & interviews</p>
+            </div>
+
+            <!-- Card 3: Gaming -->
+            <div class="card" data-category="gaming">
+                <div class="video-thumbnail" onclick="openLightbox('https://files.catbox.moe/ssnodo.mp4', 'Gaming Montage – Valorant Highlights')">
+                    <img src="images/gaming.jpg" alt="Gaming Video" />
+                    <div class="play-overlay"><span class="play-icon">▶</span></div>
+                </div>
+                <h3>Gaming Video</h3>
+                <p class="card-desc">High-energy game clips & edits</p>
+            </div>
+
+            <!-- Card 4: Football -->
+            <div class="card" data-category="football">
+                <div class="video-thumbnail" onclick="openLightbox('https://files.catbox.moe/kpx6n4.mp4', 'Football Edit – Ronaldo Skills')">
+                    <img src="images/football.jpg" alt="Football Edit" />
+                    <div class="play-overlay"><span class="play-icon">▶</span></div>
+                </div>
+                <h3>Football Edit</h3>
+                <p class="card-desc">Cinematic football compilations</p>
+            </div>
+
+            <!-- Card 5: Anime -->
+            <div class="card" data-category="anime">
+                <div class="video-thumbnail" onclick="openLightbox('https://files.catbox.moe/bbwnml.mp4', 'Anime AMV – Epic Mashup')">
+                    <img src="images/anime.jpg" alt="Anime Edit" />
+                    <div class="play-overlay"><span class="play-icon">▶</span></div>
+                </div>
+                <h3>Anime Edit</h3>
+                <p class="card-desc">Synchronized anime music videos</p>
+            </div>
+
+            <!-- Card 6: Ads -->
+            <div class="card" data-category="ads">
+                <div class="video-thumbnail" onclick="openLightbox('https://files.catbox.moe/w7mggu.mp4', 'Advertisement – Product Launch')">
+                    <img src="images/ads.jpg" alt="Advertisement" />
+                    <div class="play-overlay"><span class="play-icon">▶</span></div>
+                </div>
+                <h3>Advertisement</h3>
+                <p class="card-desc">Creative product promos for brands</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <h2 data-aos="fade-up">About Us</h2>
+        <p data-aos="fade-up" data-aos-delay="100">
+            Editkaro.in is a creative video editing and social media marketing agency.
+            We help brands, creators, businesses, and influencers create engaging content
+            through professional editing, advertisements, gaming videos, football edits,
+            anime edits, and long‑form storytelling videos.
+        </p>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+        <h2 data-aos="fade-up">Contact Us</h2>
+        <form data-aos="fade-up" data-aos-delay="100">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2026 Editkaro.in | All Rights Reserved</p>
+    </footer>
+
+    <!-- ===== VIDEO LIGHTBOX (Modal) ===== -->
+    <div id="lightbox" class="lightbox" onclick="closeLightboxOnBackground(event)">
+        <div class="lightbox-content">
+            <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+            <div id="lightbox-video-container"></div>
+            <h3 id="lightbox-title">Video Title</h3>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+    </script>
+   
+    <script src="script.js"></script>
+</body>
+</html>
